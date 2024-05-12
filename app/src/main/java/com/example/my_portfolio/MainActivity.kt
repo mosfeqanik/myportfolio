@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -45,99 +46,198 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Dashboard() {
-    Column(
+    Surface(
         Modifier
             .fillMaxHeight()
             .fillMaxWidth()
             .background(color = Color(0xFFeeeefb)),
     ) {
-        ConstraintLayout {
-            val (topImg, profile) = createRefs()
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .height(245.dp)
-                    .constrainAs(topImg) {
-                        top.linkTo(parent.top)
-                        start.linkTo(parent.start)
-                    }
-                    .background(
-                        color = Color(0xFF5e3bee),
-                        shape = RoundedCornerShape(bottomEnd = 40.dp, bottomStart = 40.dp)
-                    )
-            ) {
-                Row(
-                    modifier = Modifier
-                        .padding(
-                            top = 48.dp, start =
-                            24.dp, end = 24.dp
-                        )
-                        .fillMaxWidth()
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .height(100.dp)
-                            .padding(start = 14.dp)
-                            .weight(0.7f),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.Start
-                    ) {
-                        Text(
-                            text = "hello",
-                            color = Color.White,
-                            fontSize = 22.sp,
-                        )
-                        Text(
-                            text = "David FriedMan",
-                            color = Color.White,
-                            fontSize = 22.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(top = 14.dp)
-                        )
-                    }
-                    Image(
-                        painter = painterResource(id = R.drawable.profile),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .width(100.dp)
-                            .height(100.dp)
-                            .clickable { }
+        {
+//        ConstraintLayout {
+//            val (topImg, profile) = createRefs()
+//            Box(
+//                Modifier
+//                    .fillMaxWidth()
+//                    .height(245.dp)
+//                    .constrainAs(topImg) {
+//                        top.linkTo(parent.top)
+//                        start.linkTo(parent.start)
+//                    }
+//                    .background(
+//                        color = Color(0xFF5e3bee),
+//                        shape = RoundedCornerShape(bottomEnd = 40.dp, bottomStart = 40.dp)
+//                    )
+//            ) {
+//                Row(
+//                    modifier = Modifier
+//                        .padding(
+//                            top = 48.dp, start =
+//                            24.dp, end = 24.dp
+//                        )
+//                        .fillMaxWidth()
+//                ) {
+//                    Column(
+//                        modifier = Modifier
+//                            .height(100.dp)
+//                            .padding(start = 14.dp)
+//                            .weight(0.7f),
+//                        verticalArrangement = Arrangement.Center,
+//                        horizontalAlignment = Alignment.Start
+//                    ) {
+//                        Text(
+//                            text = "hello",
+//                            color = Color.White,
+//                            fontSize = 22.sp,
+//                        )
+//                        Text(
+//                            text = "David FriedMan",
+//                            color = Color.White,
+//                            fontSize = 22.sp,
+//                            fontWeight = FontWeight.Bold,
+//                            modifier = Modifier.padding(top = 14.dp)
+//                        )
+//                    }
+//                    Image(
+//                        painter = painterResource(id = R.drawable.profile),
+//                        contentDescription = null,
+//                        modifier = Modifier
+//                            .width(100.dp)
+//                            .height(100.dp)
+//                            .clickable { }
+//
+//                    )
+//                }
+//                Row(
+//                    verticalAlignment = Alignment.CenterVertically,
+//                    horizontalArrangement = Arrangement.Center,
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(top = 24.dp, start = 24.dp, end = 24.dp)
+//                        .shadow(3.dp,
+//                            shape = RoundedCornerShape(20.dp)
+//                        )
+////                        .constrainAs(profile) {
+////                            top.linkTo(topImg.bottom)
+////                            bottom.linkTo(topImg.bottom)
+////                            start.linkTo(parent.start)
+////                            end.linkTo(parent.end)
+////                        }
+//                ) {
+//                    Column(
+//                        modifier = Modifier
+//                            .padding(top = 12.dp, bottom = 12.dp, end = 12.dp)
+//                            .height(90.dp)
+//                            .width(90.dp)
+//                            .background(
+//                                color = Color(0xFFb6c2fe),
+//                                shape = RoundedCornerShape(20.dp)
+//                            ),
+//                        ) {
+//
+//                    }
+//
+//                }
+//
+//            }
+//        }
+        }
+        Column {
+            BoxExample()
+        }
 
+    }
+}
+
+@Composable
+fun BoxExample() {
+    Box {
+        Surface(
+            color = Color(0xFF5e3bee),
+            shape = RoundedCornerShape(
+                bottomEnd = 25.dp,
+                bottomStart = 25.dp
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .padding(
+                        top = 48.dp, start =
+                        24.dp, end = 24.dp
+                    )
+                    .fillMaxWidth()
+            ) {
+                Column(
+                    modifier = Modifier
+                        .height(100.dp)
+                        .padding(start = 14.dp)
+                        .weight(0.7f),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text(
+                        text = "Hello",
+                        color = Color.White,
+                        fontSize = 22.sp,
+                    )
+                    Text(
+                        text = "David FriedMan",
+                        color = Color.White,
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(top = 14.dp)
                     )
                 }
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center,
+                Image(
+                    painter = painterResource(id = R.drawable.profile),
+                    contentDescription = null,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 24.dp, start = 24.dp, end = 24.dp)
-                        .shadow(3.dp,
-                            shape = RoundedCornerShape(20.dp)
-                        )
-//                        .constrainAs(profile) {
-//                            top.linkTo(topImg.bottom)
-//                            bottom.linkTo(topImg.bottom)
-//                            start.linkTo(parent.start)
-//                            end.linkTo(parent.end)
-//                        }
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .padding(top = 12.dp, bottom = 12.dp, end = 12.dp)
-                            .height(90.dp)
-                            .width(90.dp)
-                            .background(
-                                color = Color(0xFFb6c2fe),
-                                shape = RoundedCornerShape(20.dp)
-                            ),
-                        ) {
+                        .width(100.dp)
+                        .height(100.dp)
+                        .clickable { }
 
+                )
+            }
+
+        }
+        Box {
+            Surface(
+                color = Color(0xFFC4C4C5),
+                shape = RoundedCornerShape(percent = 10),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .width(100.dp)
+                    .padding(top = 150.dp, start = 24.dp, end = 24.dp)
+                    .height(100.dp)
+
+            )
+            {
+                Row {
+                    Column {
+                        Text(text = "anik")
+                        Text(text = "anik")
+                        Text(text = "anik")
+                        Text(text = "anik")
                     }
-
+                    Column {
+                        Text(text = "anik")
+                        Text(text = "anik")
+                        Text(text = "anik")
+                        Text(text = "anik")
+                    }
+                    Column {
+                        Text(text = "anik")
+                        Text(text = "anik")
+                        Text(text = "anik")
+                        Text(text = "anik")
+                    }
                 }
 
             }
         }
+
     }
 }
 
